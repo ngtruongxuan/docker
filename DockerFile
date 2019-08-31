@@ -5,3 +5,4 @@ if [ ! -f /usr/local/bin/docker-compose ]; then
     cp /var/lib/boot2docker/docker-compose /usr/local/bin/docker-compose
 fi
 chmod +x /usr/local/bin/docker-compose
+docker pull ubuntu:16.04
