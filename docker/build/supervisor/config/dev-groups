@@ -1,0 +1,8 @@
+Defaults:%devs      !authenticate
+
+Cmnd_Alias READ = /bin/cat,/usr/bin/tail
+Cmnd_Alias DEVELOP = /usr/bin/git,/usr/local/bin/composer,/usr/bin/npm,/usr/bin/php,/usr/local/bin/gulp,/usr/bin/gulp,/usr/bin/bower,/usr/local/bin/bower,/bin/bash,/bin/rm,/bin/mv,/bin/cp,/bin/rmdir,/bin/mkdir,/usr/bin/vi,/usr/bin/touch,/usr/bin/crontab,/bin/nano,/bin/cat,/usr/bin/node,/usr/bin/nodejs
+Cmnd_Alias SERVICE = /usr/sbin/service nginx reload,/usr/sbin/service apache2 reload,/usr/sbin/nginx,/usr/bin/supervisorctl,/usr/local/bin/supervisorctl
+
+%devs ALL=(ALL) NOPASSWD: READ,SERVICE
+%devs ALL=(www-data) NOPASSWD: DEVELOP
