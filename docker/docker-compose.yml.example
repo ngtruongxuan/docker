@@ -1,0 +1,16 @@
+version: '2'
+services:
+  node_server:
+    build: .
+    container_name: node_container
+    volumes:
+      - /c:/c
+    working_dir: /c/Users/binhpham/Company/test-onsen
+    environment:
+      - TERM=xterm
+      - VIRTUAL_HOST=demo-onsen.local.com
+    ports:
+      - 80
+    restart: always
+    network_mode: bridge
+#    entrypoint: /usr/bin/supervisord

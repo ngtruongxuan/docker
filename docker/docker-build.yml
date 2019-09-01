@@ -1,0 +1,145 @@
+version: "3"
+services:
+  supervisor:
+    image: gitlab.hub.seldatdirect.com/docker-image/ubuntu16:supervisor
+    build:
+      context: build/supervisor
+      dockerfile: Dockerfile
+
+  nodejs8:
+    image: gitlab.hub.seldatdirect.com/docker-image/ubuntu16:nodejs8
+    depends_on:
+      - supervisor
+    build:
+      context: build/nodejs8
+      dockerfile: Dockerfile
+
+  php5.6-apache2:
+    image: gitlab.hub.seldatdirect.com/docker-image/ubuntu16:php5.6-apache2
+    depends_on:
+      - supervisor
+    build:
+      context: build/php5.6-apache2
+      dockerfile: Dockerfile
+
+  php7.1-apache2:
+    image: gitlab.hub.seldatdirect.com/docker-image/ubuntu16:php7.1-apache2
+    depends_on:
+      - supervisor
+    build:
+      context: build/php7.1-apache2
+      dockerfile: Dockerfile
+
+  php7.1-nginx:
+    image: gitlab.hub.seldatdirect.com/docker-image/ubuntu16:php7.1-nginx
+    depends_on:
+      - nodejs8
+    build:
+      context: build/php7.1-nginx
+      dockerfile: Dockerfile
+
+  php7.1-nginx-swoole:
+    image: gitlab.hub.seldatdirect.com/docker-image/ubuntu16:php7.1-nginx-swoole
+    depends_on:
+      - php7.1-nginx
+    build:
+      context: build/php7.1-nginx-swoole
+      dockerfile: Dockerfile
+
+  php7.1-nginx-mongo:
+    image: gitlab.hub.seldatdirect.com/docker-image/ubuntu16:php7.1-nginx-mongo
+    depends_on:
+      - php7.1-nginx
+    build:
+      context: build/php7.1-nginx-mongo
+      dockerfile: Dockerfile
+
+  php7.1-nginx-saas:
+    image: gitlab.hub.seldatdirect.com/docker-image/ubuntu16:php7.1-nginx-saas
+    depends_on:
+      - php7.1-nginx-mongo
+    build:
+      context: build/php7.1-nginx-saas
+      dockerfile: Dockerfile
+
+  php7.2-nginx:
+    image: gitlab.hub.seldatdirect.com/docker-image/ubuntu16:php7.2-nginx
+    depends_on:
+      - nodejs8
+    build:
+      context: build/php7.2-nginx
+      dockerfile: Dockerfile
+
+  php7.2-nginx-mongo:
+    image: gitlab.hub.seldatdirect.com/docker-image/ubuntu16:php7.2-nginx-mongo
+    depends_on:
+      - php7.2-nginx
+    build:
+      context: build/php7.2-nginx-mongo
+      dockerfile: Dockerfile
+
+  php7.3-nginx:
+    image: gitlab.hub.seldatdirect.com/docker-image/ubuntu16:php7.3-nginx
+    depends_on:
+      - nodejs8
+    build:
+      context: build/php7.3-nginx
+      dockerfile: Dockerfile
+
+  php7.3-nginx-mongo:
+    image: gitlab.hub.seldatdirect.com/docker-image/ubuntu16:php7.3-nginx-mongo
+    depends_on:
+      - php7.3-nginx
+    build:
+      context: build/php7.3-nginx-mongo
+      dockerfile: Dockerfile
+
+  php7.0-nginx:
+    image: gitlab.hub.seldatdirect.com/docker-image/ubuntu16:php7.0-nginx
+    depends_on:
+      - nodejs8
+    build:
+      context: build/php7.0-nginx
+      dockerfile: Dockerfile
+
+#  php7.0-nginx-mongo:
+#    image: gitlab.hub.seldatdirect.com/docker-image/ubuntu16:php7.0-nginx-mongo
+#    depends_on:
+#      - php7.0-nginx
+#    build:
+#      context: build/php7.0-nginx-mongo
+#      dockerfile: Dockerfile
+
+#  php7.0-apache2:
+#    image: gitlab.hub.seldatdirect.com/docker-image/ubuntu16:php7.0-apache2
+#    depends_on:
+#      - nodejs8
+#    build:
+#      context: build/php7.0-apache2
+#      dockerfile: Dockerfile
+
+#  php7.1-apache2:
+#    image: gitlab.hub.seldatdirect.com/docker-image/ubuntu16:php7.1-apache2
+#    depends_on:
+#      - nodejs8
+#    build:
+#      context: build/php7.1-apache2
+#      dockerfile: Dockerfile
+
+
+
+
+
+
+
+
+
+
+
+#  haproxy:
+#      image: gitlab.hub.seldatdirect.com/docker-image/ubuntu16:haproxy
+#      depends_on:
+#        - ssh
+#      build:
+#        context: build/haproxy
+#        dockerfile: Dockerfile
