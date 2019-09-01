@@ -1,4 +1,4 @@
-FROM gitlab.hub.seldatdirect.com/docker-image/ubuntu16:supervisor
+FROM github.com/ngtruongxuan/docker.git#:ubuntu/build/supervisor
 ENV PHP_VERSION 5.6
 
 RUN apt-get update -qq && apt-get upgrade -y && apt-get install -qq -y  language-pack-en-base

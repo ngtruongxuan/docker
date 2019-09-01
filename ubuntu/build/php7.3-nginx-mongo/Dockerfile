@@ -1,4 +1,4 @@
-FROM gitlab.hub.seldatdirect.com/docker-image/ubuntu16:php7.3-nginx
+FROM github.com/ngtruongxuan/docker.git#:ubuntu/build/php7.3-nginx
 RUN apt-get install -qq -y php$PHP_VERSION-dev pkg-config && \
     pecl install mongodb && \
     echo '; configuration for php mongodb module\n\

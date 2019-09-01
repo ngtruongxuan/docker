@@ -1,4 +1,4 @@
-FROM gitlab.hub.seldatdirect.com/docker-image/ubuntu16:nodejs8
+FROM github.com/ngtruongxuan/docker.git#:ubuntu/build/nodejs8
 ENV PHP_VERSION 7.3
 
 RUN LC_ALL=C.UTF-8 add-apt-repository ppa:ondrej/php
